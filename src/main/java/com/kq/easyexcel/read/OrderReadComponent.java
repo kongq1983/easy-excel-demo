@@ -47,7 +47,7 @@ public class OrderReadComponent {
 
 
     public static void main(String[] args) throws IOException {
-        try(InputStream in = OrderReadComponent.class.getResourceAsStream("/templates/exception_order.xlsx")) {
+        try(InputStream in = getInputStream()) {
             List<OrderFlowDto> list = loadAll(in);
 
             for(OrderFlowDto flow : list) {
@@ -58,4 +58,7 @@ public class OrderReadComponent {
     }
 
 
+    public static InputStream getInputStream() {
+        return OrderReadComponent.class.getResourceAsStream("/templates/exception_order.xlsx");
+    }
 }
