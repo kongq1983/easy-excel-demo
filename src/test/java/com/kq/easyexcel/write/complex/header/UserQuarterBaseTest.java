@@ -3,12 +3,10 @@ package com.kq.easyexcel.write.complex.header;
 import com.alibaba.excel.util.ListUtils;
 import com.google.common.collect.Lists;
 import com.kq.easyexcel.BaseTest;
-import com.kq.easyexcel.dto.UserQuarterDto;
+import com.kq.easyexcel.dto.UserQuarterDynamicHeadSecondLevelDto;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,18 +25,18 @@ public class UserQuarterBaseTest extends BaseTest {
      * @param users
      * @return
      */
-    protected List<List<Object>> getUserContentDataList(List<UserQuarterDto> users) {
+    protected List<List<Object>> getUserContentDataList(List<UserQuarterDynamicHeadSecondLevelDto> users) {
         List<List<Object>> contentList = ListUtils.newArrayList();
         //这里一个List<Object>才代表一行数据，需要映射成每行数据填充，横向填充（把实体数据的字段设置成一个List<Object>）
         //数据根据实际获取进行填充
 
-        for(UserQuarterDto user : users) {
+        for(UserQuarterDynamicHeadSecondLevelDto user : users) {
             // 每条用户数据
             List<Object> userData = ListUtils.newArrayList(user.getJobNumber(), user.getName());
 
-            for(UserQuarterDto.Quarter quarters : user.getQuarters()) {
+            for(UserQuarterDynamicHeadSecondLevelDto.Quarter quarters : user.getQuarters()) {
 
-                for(UserQuarterDto.Month month : quarters.getMonths()) {
+                for(UserQuarterDynamicHeadSecondLevelDto.Month month : quarters.getMonths()) {
                     userData.add(month.getScore());
                 }
             }
@@ -64,7 +62,7 @@ public class UserQuarterBaseTest extends BaseTest {
         headTitles.add(ListUtils.newArrayList( "工号"));
         headTitles.add(ListUtils.newArrayList( "姓名"));
         // 季度列表
-        List<UserQuarterDto.Quarter> quarterList = getQuarterList();
+        List<UserQuarterDynamicHeadSecondLevelDto.Quarter> quarterList = getQuarterList();
 
 
         // 季度和月份
@@ -81,13 +79,13 @@ public class UserQuarterBaseTest extends BaseTest {
     }
 
 
-    protected List<UserQuarterDto> getUserList(){
+    protected List<UserQuarterDynamicHeadSecondLevelDto> getUserList(){
 
-        List<UserQuarterDto> list = Lists.newArrayList();
+        List<UserQuarterDynamicHeadSecondLevelDto> list = Lists.newArrayList();
 
         for(int i=1;i<10;i++) {
 
-            UserQuarterDto dto = new UserQuarterDto();
+            UserQuarterDynamicHeadSecondLevelDto dto = new UserQuarterDynamicHeadSecondLevelDto();
             dto.setName("小王"+i);
             dto.setJobNumber(String.valueOf(i));
 
@@ -105,7 +103,7 @@ public class UserQuarterBaseTest extends BaseTest {
      * 季度列表
      * @return
      */
-    protected List<UserQuarterDto.Quarter> getQuarterList() {
+    protected List<UserQuarterDynamicHeadSecondLevelDto.Quarter> getQuarterList() {
         return Lists.newArrayList(this.getQuarter1(),this.getQuarter2());
     }
 
@@ -114,14 +112,14 @@ public class UserQuarterBaseTest extends BaseTest {
      * 一季度
      * @return
      */
-    protected UserQuarterDto.Quarter getQuarter1() {
+    protected UserQuarterDynamicHeadSecondLevelDto.Quarter getQuarter1() {
 
-        UserQuarterDto.Quarter quarter = new UserQuarterDto.Quarter();
+        UserQuarterDynamicHeadSecondLevelDto.Quarter quarter = new UserQuarterDynamicHeadSecondLevelDto.Quarter();
         quarter.setName("一季度");
 
-        List<UserQuarterDto.Month> list = Lists.newArrayList();
+        List<UserQuarterDynamicHeadSecondLevelDto.Month> list = Lists.newArrayList();
         for(int i=1;i<=3;i++) {
-            UserQuarterDto.Month month = new UserQuarterDto.Month();
+            UserQuarterDynamicHeadSecondLevelDto.Month month = new UserQuarterDynamicHeadSecondLevelDto.Month();
             month.setName(i+"月");
             month.setScore(new BigDecimal(100-i));
             list.add(month);
@@ -136,14 +134,14 @@ public class UserQuarterBaseTest extends BaseTest {
      * 二季度
      * @return
      */
-    protected UserQuarterDto.Quarter getQuarter2() {
+    protected UserQuarterDynamicHeadSecondLevelDto.Quarter getQuarter2() {
 
-        UserQuarterDto.Quarter quarter = new UserQuarterDto.Quarter();
+        UserQuarterDynamicHeadSecondLevelDto.Quarter quarter = new UserQuarterDynamicHeadSecondLevelDto.Quarter();
         quarter.setName("二季度");
 
-        List<UserQuarterDto.Month> list = Lists.newArrayList();
+        List<UserQuarterDynamicHeadSecondLevelDto.Month> list = Lists.newArrayList();
         for(int i=4;i<=6;i++) {
-            UserQuarterDto.Month month = new UserQuarterDto.Month();
+            UserQuarterDynamicHeadSecondLevelDto.Month month = new UserQuarterDynamicHeadSecondLevelDto.Month();
             month.setName(i+"月");
             month.setScore(new BigDecimal(100-i));
             list.add(month);

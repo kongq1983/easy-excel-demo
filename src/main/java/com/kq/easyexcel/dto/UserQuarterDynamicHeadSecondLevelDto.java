@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
+ * 二层动态头(季度-月份)
  * UserDto
  *
  * @author kq
@@ -15,13 +16,16 @@ import java.util.List;
  * @since 1.0.0
  */
 @Data
-public class UserQuarterDto {
+public class UserQuarterDynamicHeadSecondLevelDto {
 
     @ExcelProperty("工号")
     private String jobNumber;
 
     @ExcelProperty("姓名")
     private String name;
+
+    @ExcelProperty("备注")
+    private String remark;
 
 
     /**

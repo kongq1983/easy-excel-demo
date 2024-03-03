@@ -7,16 +7,11 @@ import com.alibaba.excel.write.metadata.WriteTable;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
-import com.google.common.collect.Lists;
-import com.kq.easyexcel.dto.UserQuarterDto;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * 个性化，样式自己定制
@@ -26,7 +21,7 @@ import java.util.List;
  * @date 2024-03-03 11:18
  * @since 1.0.0
  */
-public class UserQuarterCustomizeExportTest extends UserQuarterBaseTest{
+public class UserQuarterDynamicHeadCustomizeExportTest extends UserQuarterBaseTest{
 
     @Test
     public void testExport() throws Exception{

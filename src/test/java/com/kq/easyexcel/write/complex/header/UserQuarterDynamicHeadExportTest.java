@@ -14,7 +14,7 @@ import org.junit.Test;
  * @date 2024-03-03 15:47
  * @since 1.0.0
  */
-public class UserQuarterExportTest extends UserQuarterBaseTest{
+public class UserQuarterDynamicHeadExportTest extends UserQuarterBaseTest{
 
     @Test
     public void testExport() throws Exception{
