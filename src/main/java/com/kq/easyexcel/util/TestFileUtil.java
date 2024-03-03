@@ -8,7 +8,8 @@ package com.kq.easyexcel.util;
 public class TestFileUtil {
 
     public static String getPath() {
-        return "d:\\back\\excel\\";
+//        return "d:\\back\\excel\\";
+        return "c:\\excel-demo\\";
     }
 
 

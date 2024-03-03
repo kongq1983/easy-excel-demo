@@ -1,8 +1,13 @@
 package com.kq.easyexcel;
 
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.date.DateUtil;
 import com.alibaba.excel.util.ListUtils;
 import com.kq.easyexcel.dto.DemoData;
+import com.kq.easyexcel.util.TestFileUtil;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +30,31 @@ public class BaseTest {
             list.add(data);
         }
         return list;
+    }
+
+
+    /**
+     * 导出文件
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
+    protected File getExportFile(String fileName) throws IOException {
+        File file = new File(TestFileUtil.getPath(),fileName+".xlsx");
+
+        System.out.println("file="+file.getAbsolutePath());
+
+        if(!file.getParentFile().exists()){
+            file.getParentFile().mkdirs();
+        }
+
+        return file;
+    }
+
+    protected File getExportFile() throws IOException {
+        String file = DateUtil.format(new Date(), DatePattern.PURE_DATETIME_MS_FORMAT);
+
+        return getExportFile(file);
     }
 
 }
